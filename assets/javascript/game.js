@@ -44,7 +44,7 @@ resetAndStart();
 
 // var reset = function() { }
 
-$(document).on('click', "crystal", function () {
+$(".crystal").on('click', function () {
 
     // getting values
     var num = parseInt($(this).attr('dataRandom'));
@@ -55,7 +55,7 @@ $(document).on('click', "crystal", function () {
 
     $("#previousNum").html("Total score: " + previousNum)
 
-    // console.log(previousNum);
+    console.log(previousNum);
 
     if(previousNum > randomResult){
         lose++;
