@@ -8,34 +8,66 @@
 // If the total is equal, then we incremenet a win counter
 
 var randomResult;
-var lose ;
-var win;
+var lose = 0 ;
+var win = 0;
+var previousNum = 0;
 
-randomResult = Math.floor(Math.random() * 101) + 19;
+var resetAndStart = function() {
 
-$('#result').html('Random Result: ' + randomResult);
+    $(".crystals").empty();
 
-for(var i = 0; i < 4; i++){
+    randomResult = Math.floor(Math.random() * 101) + 19;
 
-    var random= Math.floor(Math.random()* 12) + 1;
-    // console.log(random);
+    $('#result').html('Random Result: ' + randomResult);
 
-    var crystal= $('<div>');
-        crystal.attr({  //setting values
-            'class':'crystal', 
-            'dataRandom': random
-        });
+    for(var i = 0; i < 4; i++){
 
-    $('.crystals').append(crystal);
+        var random= Math.floor(Math.random()* 12) + 1;
+        // console.log(random);
+        
+        var crystal= $("<div>");
+            crystal.attr({  //setting values
+                "class":'crystal', 
+                "dataRandom": random
+            });
 
+            crystal.html(random);
+
+        $(".crystals").append(crystal);
+
+    }
+
+    $("#previousNum").html("Total Score: " + previousNum);
 }
 
-$('.crystal').on('click', function () {
+resetAndStart();
+
+// var reset = function() { }
+
+$(document).on('click', "crystal", function () {
 
     // getting values
     var num = parseInt($(this).attr('dataRandom'));
 
-    var result = num + 5;
-    console.log(num, result);
+    previousNum += num;
 
+    // console.log(previousNum);
+
+    $("#previousNum").html("Total score: " + previousNum)
+
+    // console.log(previousNum);
+
+    if(previousNum > randomResult){
+        lose++;
+        $("#lose").html("You lose: " + lose);
+        previousNum= 0;
+        resetAndStart();
+    }
+    else if(previousNum === randomResult){
+        win++;
+        $("#win").html("You win " + win);
+        previousNum= 0;
+        resetAndStart();
+    }
+    
 });
