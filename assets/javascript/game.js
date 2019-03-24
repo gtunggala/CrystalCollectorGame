@@ -18,7 +18,7 @@ var resetAndStart = function() {
 
     randomResult = Math.floor(Math.random() * 101) + 19;
 
-    $('#result').html('Random Result: ' + randomResult);
+    $("#result").html('Random Result: ' + randomResult);
 
     for(var i = 0; i < 4; i++){
 
@@ -32,19 +32,19 @@ var resetAndStart = function() {
             });
 
             crystal.html(random);
-
         $(".crystals").append(crystal);
 
     }
 
-    $("#previousNum").html("Total Score: " + previousNum);
+    $("#previousNum").html("Total Score: ", previousNum);
 }
 
 resetAndStart();
 
 // var reset = function() { }
 
-$(".crystal").on('click', function () {
+// $(".crystal").on('click', function () {
+$(document).on('click', ".crystal", function () {
 
     // getting values
     var num = parseInt($(this).attr('dataRandom'));
@@ -53,19 +53,19 @@ $(".crystal").on('click', function () {
 
     // console.log(previousNum);
 
-    $("#previousNum").html("Total score: " + previousNum)
+    $("#previousNum").html("Total Score: " + previousNum)
 
     console.log(previousNum);
 
     if(previousNum > randomResult){
         lose++;
-        $("#lose").html("You lose: " + lose);
+        $("#lose").html("Your losses: "+ lose);
         previousNum= 0;
         resetAndStart();
     }
     else if(previousNum === randomResult){
         win++;
-        $("#win").html("You win " + win);
+        $("#win").html("Your wins: "+ win);
         previousNum= 0;
         resetAndStart();
     }
