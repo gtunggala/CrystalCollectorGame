@@ -16,6 +16,13 @@ var resetAndStart = function() {
 
     $(".crystals").empty();
 
+    var images = [
+        'https://www.yourfortune.in/wp-content/uploads/2016/11/amethyst.jpg', 
+        'https://avatars.mds.yandex.net/get-pdb/219263/8abff039-cf12-40c5-9758-f182532b82cd/s1200', 
+        'https://cdn.shopify.com/s/files/1/0380/5717/products/pear-chatham-lab-grown-blue-sapphire-gems_1024x1024.png?v=1535067510', 
+        'http://www.vanillagoose.com/Portals/74/product/images/BC80RBY%20-%20Red%20Ruby%20Glass%20Gem.jpg'
+    ];
+
     randomResult = Math.floor(Math.random() * 101) + 19;
 
     $("#result").html('Random Result: ' + randomResult);
@@ -31,12 +38,16 @@ var resetAndStart = function() {
                 "dataRandom": random
             });
 
-            crystal.html(random);
+            crystal.css({
+                "background-image":"url('" + images[i]+ "')",
+                "background-size":"cover"
+            });
+            // crystal.html(random);
         $(".crystals").append(crystal);
 
     }
 
-    $("#previousNum").html("Total Score: ", previousNum);
+    $("#previousNum").html("Total Score: "+ previousNum);
 }
 
 resetAndStart();
