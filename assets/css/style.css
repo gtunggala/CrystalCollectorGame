@@ -1,27 +1,26 @@
 body {
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-    background-size: cover;
-    background-color: #778877;
-    font-size: large;
-    color: black;
-  }
+  font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  background-size: cover;
+  background-color: #778877;
+  font-size: large;
+  color: black;
+}
 
-  .description {
-      background-color: #97bbdd;
-      padding: 5px;
-      padding-left: 10px;
-  }
+.description {
+  background-color: #97bbdd;
+  padding: 5px;
+  padding-left: 10px;
+}
 
 .crystals {
-    display: flex;
-    justify-content: space-around;
-    /* border:1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  /* border:1px solid red; */
 }
 
 .crystal {
-    border: 3px solid black;
-    height: 200px;
-    width: 200px;
-    background-color: white;
+  border: 3px solid black;
+  height: 200px;
+  width: 200px;
+  background-color: white;
 }
-
